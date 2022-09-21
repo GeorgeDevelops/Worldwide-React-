@@ -42,6 +42,7 @@ const Weather = (props) => {
           ) : null}
         </div>
         <Forecast forecast={forecast} />
+        <footer>All rights reserved &copy; George Quezada</footer>
       </div>
     </React.Fragment>
   );
