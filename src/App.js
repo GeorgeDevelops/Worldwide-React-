@@ -72,6 +72,7 @@ function App() {
         info={data}
         forecast={forecastData}
       />
+      <footer>All rights reserved &copy; George Quezada</footer>
     </div>
   );
 }
