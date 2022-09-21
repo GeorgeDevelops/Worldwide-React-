@@ -1,38 +1,185 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: url("./image/bg-weather-app.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  overflow: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 330px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 .App {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  z-index: 999;
+  opacity: 0.6;
+}
+
+#search-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0px 30px 0px;
+}
+
+#search-wrapper input {
+  padding: 10px 10px 10px 15px;
+  margin-right: 5px;
+  border-radius: 25px;
+  outline: none;
+  background-color: rgba(188, 188, 188, 0.361);
+  border-style: none;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+#search-wrapper button {
+  width: 40px;
+  border-radius: 999px;
+  border-style: none;
+  cursor: pointer;
+  background-color: aqua;
+}
+
+#weather-wrapper {
+  display: block;
+  width: 60%;
+  height: 100%;
+  margin: 0px auto;
+  color: #fff;
+  padding-top: 10px;
+  position: relative;
+}
+
+#weather-wrapper .city p {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#weather-wrapper .weather {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#weather-wrapper .weather div {
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#weather-wrapper .weather span {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 60px;
+  height: fit-content;
+}
+
+#weather-wrapper .weather p {
+  font-weight: bolder;
+  margin-left: 10px;
+  margin: 0px 10px;
+}
+
+#weather-wrapper .clouds {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#weather-wrapper .details {
+  background-color: rgba(188, 188, 188, 0.361);
+  border-radius: 25px;
+}
+
+#weather-wrapper .details div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: space-evenly;
+}
+
+#forecast_wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding-left: 0px;
+  justify-content: space-evenly;
+  width: 100%;
+  height: fit-content;
+  list-style: none;
+  gap: 10px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 255, 0.508);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.day h2 {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.day h5 {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  font-size: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.day p {
+  font-weight: bold;
+  margin-bottom: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.day .icon {
+  font-size: 45px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  bottom: 0px;
+  padding: 10px;
+  z-index: 999;
+  color: #fff;
+  background-color: #333;
 }
