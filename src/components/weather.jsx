@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Forecast from "./forecast";
 import icon from "../utils/icon";
 
 const Weather = (props) => {
   const { info, forecast } = props;
+  const [fahrenheit, setFahrenheit] = useState();
+
+  function changeTempScale() {
+    if (!fahrenheit) return setFahrenheit(true);
+    return setFahrenheit(false);
+  }
 
   return (
     <React.Fragment>
@@ -13,7 +19,29 @@ const Weather = (props) => {
           {info.main ? (
             <span>
               {icon(info.weather[0].main)}
-              {<p>{(((info.main.temp - 32) * 5) / 9).toFixed()} °C</p>}
+              {
+                <p>
+                  {!fahrenheit
+                    ? (((info.main.temp - 32) * 5) / 9).toFixed()
+                    : info.main.temp.toFixed()}
+                  &nbsp;
+                  <span
+                    style={{ opacity: !fahrenheit ? 1 : 0.3 }}
+                    className="fahrenheit"
+                    onClick={changeTempScale}
+                  >
+                    °C
+                  </span>
+                  &nbsp;|
+                  <span
+                    style={{ opacity: !fahrenheit ? 0.3 : 1 }}
+                    className="fahrenheit"
+                    onClick={changeTempScale}
+                  >
+                    °F
+                  </span>
+                </p>
+              }
             </span>
           ) : null}
         </div>
@@ -21,7 +49,11 @@ const Weather = (props) => {
           {info.main ? (
             <p>
               {info.weather[0].main} | {info.weather[0].description} | Feels
-              like {(((info.main.feels_like - 32) * 5) / 9).toFixed()} °C
+              like{" "}
+              {!fahrenheit
+                ? (((info.main.feels_like - 32) * 5) / 9).toFixed()
+                : info.main.feels_like.toFixed()}
+              {!fahrenheit ? "°C" : "°F"}
             </p>
           ) : null}
         </div>
@@ -41,7 +73,7 @@ const Weather = (props) => {
             </div>
           ) : null}
         </div>
-        <Forecast forecast={forecast} />
+        <Forecast tempScale={fahrenheit} forecast={forecast} />
       </div>
     </React.Fragment>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ForecastDay from "./forecastDay";
 
 const Forecast = (props) => {
-  const { forecast } = props;
+  const { forecast, tempScale } = props;
   const [days, setDays] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,12 @@ const Forecast = (props) => {
     <React.Fragment>
       <ul id="forecast_wrapper">
         {days.map((day, index) => (
-          <ForecastDay key={index} clouds={day.weather[0]} weather={day.main} />
+          <ForecastDay
+            key={index}
+            tempScale={tempScale}
+            clouds={day.weather[0]}
+            weather={day.main}
+          />
         ))}
       </ul>
     </React.Fragment>
